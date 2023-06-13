@@ -3,7 +3,7 @@
 
 @include('Layout.default.head')
 
-<body class="dark-mode hold-transition sidebar-mini layout-fixed layout-navbar-fixed sidebar-collapse">
+<body class="light-mode hold-transition sidebar-mini layout-fixed layout-navbar-fixed sidebar-collapse">
     <div class="wrapper">
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-dark" id="navbar">
@@ -91,12 +91,14 @@
                                 <p>User</p>
                             </a>
                         </li>
+<!--
                         <li class="nav-item">
                             <a href="program.html" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>Program</p>
                             </a>
                         </li>
+-->
                         <li class="nav-item">
                             <a href="siswa.html" class="nav-link">
                                 <i class="nav-icon fas fa-graduation-cap"></i>

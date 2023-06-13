@@ -1,7 +1,6 @@
-@extends('Layout.layout')
-@section('body')
-
-<body class="hold-transition login-page">
+@extends('Layout.auth.layout')
+@section('body-class', 'login-page')
+@section('content')
     <div class="login-box">
         <div class="login-logo">
             <a href="../../index2.html"><b>Admin</b>LTE</a>
@@ -57,22 +56,13 @@
                 <!-- /.social-auth-links -->
 
                 <p class="mb-1">
-                    <a href="forgot-password.html">I forgot my password</a>
+                    <a href="/forgot-password">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="register.html" class="text-center">Register a new membership</a>
+                    <a href="/register" class="text-center">Register a new membership</a>
                 </p>
             </div>
             <!-- /.login-card-body -->
         </div>
     </div>
-    <!-- /.login-box -->
-
-    <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="../../dist/js/adminlte.min.js"></script>
-</body>
 @endsection
