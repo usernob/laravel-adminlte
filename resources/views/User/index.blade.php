@@ -1,4 +1,5 @@
 @extends('Layout.table.layout')
+@section('title', 'User')
 @section('content')
 
 

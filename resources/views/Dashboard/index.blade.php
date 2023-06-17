@@ -1,4 +1,5 @@
 @extends('Layout.default.layout')
+@section('title', 'Dashboard')
 @section('content')
 
 

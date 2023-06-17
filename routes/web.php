@@ -23,3 +23,5 @@ Route::get('/user', [UserController::class, "index"])->name("user.index");
 Route::get('/login', [AuthController::class, "login"])->name("auth.login");
 
 Route::get('/register', [AuthController::class, "register"])->name("auth.register");
+
+Route::post('/proses-register', [AuthController::class, "prosesRegister"])->name("auth.proses-register");

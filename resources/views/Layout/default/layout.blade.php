@@ -6,7 +6,7 @@
 <body class="light-mode hold-transition sidebar-mini layout-fixed layout-navbar-fixed sidebar-collapse">
     <div class="wrapper">
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-dark" id="navbar">
+        <nav class="main-header navbar navbar-expand navbar-light" id="navbar">
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -48,7 +48,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link" role="button">
-                        <i class="far fa-moon" id="theme-switcher"></i>
+                        <i class="far fa-sun" id="theme-switcher"></i>
                     </a>
                 </li>
                 <li class="user-panel d-flex align-items-center">
