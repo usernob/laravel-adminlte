@@ -51,10 +51,16 @@
                         <i class="far fa-sun" id="theme-switcher"></i>
                     </a>
                 </li>
-                <li class="user-panel d-flex align-items-center">
-                    <div class="image pr-3">
-                        <img src="{{ asset('img/user2-160x160.jpg') }}" class="img-circle elevation-2"
+                <li class="nav-item dropdown no-arrow">
+                    <a class="btn pr-3 dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="{{ asset('img/user2-160x160.jpg') }}" width="30" class="img-circle elevation-2"
                             alt="User Image" />
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('auth.logout') }}">Log Out</a>
+                        <!-- <a class="dropdown-item" href="#">Another action</a> -->
+                        <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>
                 </li>
             </ul>
@@ -79,26 +85,26 @@
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="{{ route('dashboard.index') }}"
-                                class="nav-link {{ str_starts_with(request()->route()->getName(), 'dashboard.index') ? 'active' : '' }}">
+                                class="nav-link {{ str_starts_with(request()->route()->getName(),'dashboard.index')? 'active': '' }}">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('user.index') }}"
-                                class="nav-link {{ str_starts_with(request()->route()->getName(), 'user.index') ? 'active' : '' }}">
+                                class="nav-link {{ str_starts_with(request()->route()->getName(),'user.index')? 'active': '' }}">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>User</p>
                             </a>
                         </li>
-<!--
+                        <!--
                         <li class="nav-item">
                             <a href="program.html" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>Program</p>
                             </a>
                         </li>
--->
+                        -->
                         <li class="nav-item">
                             <a href="siswa.html" class="nav-link">
                                 <i class="nav-icon fas fa-graduation-cap"></i>

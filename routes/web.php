@@ -25,3 +25,7 @@ Route::get('/login', [AuthController::class, "login"])->name("auth.login");
 Route::get('/register', [AuthController::class, "register"])->name("auth.register");
 
 Route::post('/proses-register', [AuthController::class, "prosesRegister"])->name("auth.proses-register");
+
+Route::post('/otentikasi', [AuthController::class, "otentikasi"])->name("auth.otentikasi");
+
+Route::get('/logout', [AuthController::class, "logout"])->name("auth.logout");

@@ -11,22 +11,44 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="../../index3.html" method="post" enctype="multipart/form-data">
+                <form action="{{ route('auth.otentikasi') }}" method="post" enctype="multipart/form-data">
+                    @csrf
                     @if (session('success'))
                         <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
                     @endif
+                    @error('auth_failed')
+                        <div class="alert alert-danger">
+                            {{ $message }}
+                        </div>
+                    @enderror
                     <div class="mb-3">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1"
                                 placeholder="Enter email">
+                            @error('email')
+                                <div class="alert alert-danger alert-dismissible invalid-feedback fade show" role="alert">
+                                    {{ $message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputPassword1"
+                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1"
                                 placeholder="Password">
+                            @error('password')
+                                <div class="alert alert-danger alert-dismissible invalid-feedback fade show" role="alert">
+                                    {{ $message }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     <div class="row">
