@@ -54,12 +54,12 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="btn pr-3 dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset('img/user2-160x160.jpg') }}" width="30" class="img-circle elevation-2"
+                        <img src="{{ asset(auth()->user()->foto) }}" width="30" height="30" style="object-fit: cover; object-position: center" class="img-circle elevation-2"
                             alt="User Image" />
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <p class="dropdown-item" href="#">Logged in as {{ auth()->user()->nama }}</p>
                         <a class="dropdown-item" href="{{ route('auth.logout') }}">Log Out</a>
-                        <!-- <a class="dropdown-item" href="#">Another action</a> -->
                         <!-- <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>
                 </li>
@@ -106,7 +106,8 @@
                         </li>
                         -->
                         <li class="nav-item">
-                            <a href="siswa.html" class="nav-link">
+                            <a href="{{ route('siswa.index') }}"
+                                class="nav-link {{ str_starts_with(request()->route()->getName(),'siswa.index')? 'active': '' }}">
                                 <i class="nav-icon fas fa-graduation-cap"></i>
                                 <p>Siswa</p>
                             </a>
