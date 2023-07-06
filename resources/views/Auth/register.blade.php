@@ -82,7 +82,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputFile">Profile Picture</label>
+                            <label for="input-file">Profile Picture</label>
                             <div class="input-group @error('foto') is-invalid @enderror">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input @error('foto') is-invalid @enderror"
@@ -135,7 +135,7 @@
     </div>
     <script>
         document.getElementById('input-file').onchange = function() {
-            document.querySelector("label[for='input-file']").innerHTML = this.files[0].name;
+            document.querySelector("label[class='custom-file-label'][for='input-file']").innerHTML = this.files[0].name;
         };
     </script>
 @endsection

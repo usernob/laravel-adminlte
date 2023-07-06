@@ -29,7 +29,7 @@ class AuthController extends Controller
         $validasiData['password'] = Hash::make($validasiData['password']);
         $validasiData['level'] = 'admin';
         if ($request->hasFile('foto')) {
-            $file = $request->file('foto')->store('user');
+            $file = $request->file('foto')->store('foto_user');
             $validasiData['foto'] = $file;
         } else {
             return redirect()

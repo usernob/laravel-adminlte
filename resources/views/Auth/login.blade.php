@@ -26,8 +26,8 @@
                     <div class="mb-3">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1"
-                                placeholder="Enter email">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                                id="exampleInputEmail1" placeholder="Enter email">
                             @error('email')
                                 <div class="alert alert-danger alert-dismissible invalid-feedback fade show" role="alert">
                                     {{ $message }}
@@ -39,7 +39,8 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Password</label>
-                            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1"
+                            <input type="password" name="password"
+                                class="form-control @error('password') is-invalid @enderror" id="exampleInputPassword1"
                                 placeholder="Password">
                             @error('password')
                                 <div class="alert alert-danger alert-dismissible invalid-feedback fade show" role="alert">

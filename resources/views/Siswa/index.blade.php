@@ -1,5 +1,5 @@
 @extends('Layout.table.layout')
-@section('title', 'User')
+@section('title', 'Siswa')
 @section('content')
 
 
@@ -9,13 +9,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">User</h1>
+                        <h1 class="m-0">Siswa</h1>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item active">Siswa</li>
                         </ol>
                     </div>
                     <!-- /.col -->
@@ -45,16 +45,16 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Email</th>
+                                            <th>Mengikuti Program</th>
                                             <th>Lihat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($user as $item)
+                                        @foreach ($siswa as $item)
                                             <tr>
                                                 <td></td>
                                                 <td>{{ $item->nama }}</td>
-                                                <td>{{ $item->email }}</td>
+                                                <td>{{ $item->mengikuti_program }}</td>
                                                 <td>
                                                     <button type="button" class="btn btn-primary" data-toggle="modal"
                                                         data-target="#modalShowMore"
@@ -69,7 +69,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama</th>
-                                            <th>Email</th>
+                                            <th>Mengikuti Program</th>
                                             <th>Lihat</th>
                                         </tr>
                                     </tfoot>
@@ -133,7 +133,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Tutup
                     </button>
-                    <a href="form.html" type="button" class="btn btn-primary">
+                    <a href="{{ route('siswa.add') }}" type="button" class="btn btn-primary">
                         Ya Saya Yakin
                     </a>
                 </div>
@@ -142,7 +142,7 @@
     </div>
     <script>
         function loadInfo(id) {
-            $.get(`/user/${id}`, function(data, status) {
+            $.get(`/siswa/${id}`, function(data, status) {
                 $("#modal-body").html(data);
             });
         }
