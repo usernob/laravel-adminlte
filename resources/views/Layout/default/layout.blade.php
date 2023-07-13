@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="dashboard.html" class="nav-link">Home</a>
+                    <a href="{{ route('dashboard.index') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -54,7 +54,8 @@
                 <li class="nav-item dropdown no-arrow">
                     <a class="btn pr-3 dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" role="button"
                         aria-haspopup="true" aria-expanded="false">
-                        <img src="{{ asset(auth()->user()->foto) }}" width="30" height="30" style="object-fit: cover; object-position: center" class="img-circle elevation-2"
+                        <img src="{{ asset(auth()->user()->foto) }}" width="30" height="30"
+                            style="object-fit: cover; object-position: center" class="img-circle elevation-2"
                             alt="User Image" />
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -71,9 +72,9 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="{{ route('dashboard.index') }}" class="brand-link">
-                <img src="{{ asset('img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: 0.8" />
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <img src="{{ asset('img/AdminLTELogo.png') }}" alt="logo" class="brand-image img-circle elevation-3"
+                    style="opacity: 0.8" />
+                <span class="brand-text font-weight-light">Argia</span>
             </a>
 
             <!-- Sidebar -->
@@ -93,23 +94,29 @@
                         <li class="nav-item">
                             <a href="{{ route('user.index') }}"
                                 class="nav-link {{ str_starts_with(request()->route()->getName(),'user.index')? 'active': '' }}">
-                                <i class="nav-icon fas fa-user"></i>
+                                <i class="nav-icon fas fa-user-shield"></i>
                                 <p>User</p>
                             </a>
                         </li>
-                        <!--
                         <li class="nav-item">
-                            <a href="program.html" class="nav-link">
+                            <a href="{{ route('program.index') }}"
+                                class="nav-link {{ str_starts_with(request()->route()->getName(),'program.index')? 'active': '' }}">
                                 <i class="nav-icon fas fa-book"></i>
                                 <p>Program</p>
                             </a>
                         </li>
-                        -->
                         <li class="nav-item">
                             <a href="{{ route('siswa.index') }}"
                                 class="nav-link {{ str_starts_with(request()->route()->getName(),'siswa.index')? 'active': '' }}">
                                 <i class="nav-icon fas fa-graduation-cap"></i>
                                 <p>Siswa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('user.profile', auth()->user()->id) }}"
+                                class="nav-link {{ str_starts_with(request()->route()->getName(),'user.profile')? 'active': '' }}">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Profile</p>
                             </a>
                         </li>
                     </ul>
@@ -130,7 +137,7 @@
             <div class="float-right d-none d-sm-inline">Anything you want</div>
             <!-- Default to the left -->
             <strong>
-                Copyright &copy; 2014-2021
+                Copyright &copy; {{ date('Y') }}
                 <a href="https://adminlte.io">AdminLTE.io</a>.
             </strong>
             All rights reserved.

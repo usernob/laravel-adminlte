@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class () extends Migration {
     /**
      * Run the migrations.
      *
@@ -13,18 +12,30 @@ return new class extends Migration
      */
     public function up()
     {
-            Schema::create("siswa", function (Blueprint $table) {
-                $table->id();
-                $table->string("nama");
-                $table->text("alamat");
-                $table->string("no_telp");
-                $table->string("foto");
-                $table->string("mengikuti_program");
-                $table->string("harga_program");
-                $table->string("pdf_sertifikat");
-                $table->string("pdf_nilai");
-                $table->timestamps();
-            });
+        Schema::create('siswa', function (Blueprint $table) {
+            $table->uuid('id')->primary();
+            $table->string('nama');
+            $table->text('alamat');
+            $table->string('no_telp');
+            $table
+                ->string('foto')
+                ->nullable()
+                ->default('template/guest.jpg');
+            $table->unsignedBigInteger('program_id');
+            $table
+                ->foreign('program_id')
+                ->references('id')
+                ->on('program');
+            $table
+                ->string('pdf_sertifikat')
+                ->nullable()
+                ->default('template/template.pdf');
+            $table
+                ->string('pdf_nilai')
+                ->nullable()
+                ->default('template/template.pdf');
+            $table->timestamps();
+        });
     }
 
     /**

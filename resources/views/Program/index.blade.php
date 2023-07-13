@@ -1,7 +1,6 @@
 @extends('Layout.table.layout')
-@section('title', 'Siswa')
+@section('title', 'Program')
 @section('content')
-
 
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -9,13 +8,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Siswa</h1>
+                        <h1 class="m-0">Program</h1>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Siswa</li>
+                            <li class="breadcrumb-item active">Program</li>
                         </ol>
                     </div>
                     <!-- /.col -->
@@ -40,6 +39,14 @@
                                 </button>
                             </div>
                         @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <span> {{ session('error') }} </span>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                         <div class="card">
                             <div class="card-header">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -52,23 +59,22 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Mengikuti Program</th>
-                                            <th>Lihat</th>
+                                            <th>Nama Program</th>
+                                            <th>Harga Program</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($siswa as $item)
+                                        @foreach ($program as $item)
                                             <tr>
                                                 <td></td>
-                                                <td>{{ $item->nama }}</td>
-                                                <td>{{ $item->program->nama_program }}</td>
+                                                <td>{{ $item->nama_program }}</td>
+                                                <td>Rp @format($item->harga_program)</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#modalShowMore"
-                                                        onclick="loadInfo('{{ $item->id }}')">
-                                                        selengkapnya
-                                                    </button>
+                                                    <a href="{{ route('program.edit', $item->id) }}"
+                                                        class="btn btn-info">Edit</a>
+                                                    <a href="{{ route('program.destroy', $item->id) }}"
+                                                        class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -76,9 +82,9 @@
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Mengikuti Program</th>
-                                            <th>Lihat</th>
+                                            <th>Nama Program</th>
+                                            <th>Harga Program</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -93,23 +99,6 @@
             <!-- /.container-fluid -->
         </div>
         <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalShowMore" data-backdrop="static" tabindex="-1" role="dialog"
-        aria-labelledby="modalShowMoreLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalShowMoreLabel">Info</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div id="modal-body">...</div>
-            </div>
-        </div>
     </div>
     <div class="modal fade" id="modalAddData" data-backdrop="static" tabindex="-1" role="dialog"
         aria-labelledby="modalAddDataLabel" aria-hidden="true">
@@ -135,7 +124,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                         Tutup
                     </button>
-                    <a href="{{ route('siswa.add') }}" type="button" class="btn btn-primary">
+                    <a href="{{ route('program.add') }}" type="button" class="btn btn-primary">
                         Ya Saya Yakin
                     </a>
                 </div>
@@ -144,13 +133,3 @@
     </div>
 
 @endsection
-
-@push('scripts')
-    <script>
-        function loadInfo(id) {
-            $.get(`/siswa/${id}`, function(data, status) {
-                $("#modal-body").html(data);
-            });
-        }
-    </script>
-@endpush

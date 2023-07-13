@@ -65,7 +65,7 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
-        public_path('foto_user') => storage_path('app/public/user'),
+        public_path('foto_user') => storage_path('app/public/foto_user'),
         public_path('foto_siswa') => storage_path('app/public/foto_siswa'),
         public_path('pdf_sertifikat') => storage_path('app/public/pdf_sertifikat'),
         public_path('pdf_nilai') => storage_path('app/public/pdf_nilai'),
